@@ -1,0 +1,1 @@
+Este arquivo está dentro do repositório si1/lab1 que tem meu código para o primeiro lab.
