@@ -1,2 +1,2 @@
-Sistema da Informação 2013.2 :)
+Sistema da Informação 2013.2
 
