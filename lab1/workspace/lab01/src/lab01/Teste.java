@@ -10,7 +10,7 @@ public class Teste {
 
 	@Before
 	public void inicializa() {
-		num = new Numero();
+		num = new Numero(); 
 	}
 
 	@Test
