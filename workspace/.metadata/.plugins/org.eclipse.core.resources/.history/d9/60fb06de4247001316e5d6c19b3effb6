@@ -9,8 +9,7 @@ public class Teste {
 	@Test
 	public void test() {
 		Numero num = new Numero();
-		assertEquals("zero", num.porExtenso("0"));
-		assertEquals("um", num.porExtenso("1"));
+		assertEquals("zero", num.porExtenso("0"));		
 		
 	}
 
