@@ -4,6 +4,7 @@
 /bin
 /build
 /.settings
+/lab1/workspace/.metadata
 /dist
 /%CATALINA_HOME%
 /CATALINA_HOME
