@@ -27,11 +27,7 @@ public class Teste {
 	}
 
 	@Test
-	public void testExcecao() {
+	public void testVazio() {
 		assertEquals("", "");
-		assertEquals("Informe um numero", num.porExtenso("shdh"));
-		assertEquals("Informe um numero", num.porExtenso("s2"));
-		assertEquals("Informe um numero", num.porExtenso("12o"));
-		assertNotEquals("Informe um numero", num.porExtenso("12o"));
 	}
 }

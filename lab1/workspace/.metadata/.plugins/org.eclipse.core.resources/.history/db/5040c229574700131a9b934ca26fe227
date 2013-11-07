@@ -1,11 +1,13 @@
 package lab01;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class Numero {
 
 	private Hashtable<String, String> numeros = new Hashtable<String, String>();
 	String[] algarismo = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+	ArrayList<String> a = new ArrayList<String>();
 
 	public String porExtenso(String num) {
 

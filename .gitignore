@@ -1,0 +1,10 @@
+#files that should never be commited
+.classpath
+.project
+/bin
+/build
+/.settings
+/dist
+/%CATALINA_HOME%
+/CATALINA_HOME
+build.xml
