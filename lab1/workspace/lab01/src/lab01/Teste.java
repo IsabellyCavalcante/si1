@@ -6,11 +6,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class Teste {
-	private Numero num;
+	private Numero num1;
 
 	@Before
 	public void inicializa() {
-		num = new Numero(); 
+		num1 = new Numero(); 
 	}
 
 	@Test
@@ -21,7 +21,7 @@ public class Teste {
 				"dezoito", "dezenove" };
 
 		for (int i = 0; i < 20; i++) {
-			assertEquals(numExtenso[i], num.porExtenso(String.valueOf(i)));
+			assertEquals(numExtenso[i], num1.porExtenso(String.valueOf(i)));
 		}
 
 	}
@@ -29,9 +29,9 @@ public class Teste {
 	@Test
 	public void testExcecao() {
 		assertEquals("", "");
-		assertEquals("Informe um numero", num.porExtenso("shdh"));
-		assertEquals("Informe um numero", num.porExtenso("s2"));
-		assertEquals("Informe um numero", num.porExtenso("12o"));
-		assertNotEquals("Informe um numero", num.porExtenso("12o"));
+		assertEquals("Informe um numero", num1.porExtenso("shdh"));
+		assertEquals("Informe um numero", num1.porExtenso("s2"));
+		assertEquals("Informe um numero", num1.porExtenso("12o"));
+		assertNotEquals("Informe um numero", num1.porExtenso("12o"));
 	}
 }
