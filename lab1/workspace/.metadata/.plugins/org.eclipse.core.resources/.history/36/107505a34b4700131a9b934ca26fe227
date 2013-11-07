@@ -2,19 +2,13 @@ package lab01;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
 public class Teste {
-	private Numero num;
-	
-	@Before
-	public void inicializa() {
-		num = new Numero();
-	}
 
 	@Test
 	public void test1A19() {
+		Numero num = new Numero();
 		assertEquals("zero", num.porExtenso("0"));
 		assertEquals("um", num.porExtenso("1"));
 		assertEquals("dois", num.porExtenso("2"));
@@ -36,10 +30,7 @@ public class Teste {
 		assertEquals("dezoito", num.porExtenso("18"));
 		assertEquals("dezenove", num.porExtenso("19"));
 
+		
 	}
 
-	@Test
-	public void testVazio() {
-		assertEquals("", "");
-	}
 }

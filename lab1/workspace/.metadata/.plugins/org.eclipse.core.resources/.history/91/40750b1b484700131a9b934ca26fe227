@@ -6,10 +6,7 @@ public class Numero {
 	
 	private Hashtable<String, String> numeros = new Hashtable <String, String>();
 
-	public String porExtenso(String num) {
-		if (num.equals("")){
-			return "";
-		}
+	public String porExtenso(String i) {
 		numeros.put("0", "zero");
 		numeros.put("1", "um");
 		numeros.put("2", "dois");
@@ -32,11 +29,7 @@ public class Numero {
 		numeros.put("19", "dezenove");
 		numeros.put("20", "vinte");
 		
-		return numeros.get(num);
-		
-	}
-	
-	public static void main(String[] args) {
+		return numeros.get(i);
 		
 	}
 
