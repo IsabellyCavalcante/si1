@@ -158,13 +158,13 @@ public class Teste {
 		} catch (Exception e) {
 			fail("laçou exceçao, mas nao devia");
 		}
-		
+
 		try {
 			assertEquals("setecentos e trinta e dois", num1.porExtenso("732"));
 		} catch (Exception e) {
 			fail("laçou exceçao, mas nao devia");
 		}
-		
+
 		try {
 			assertEquals("setecentos e dois", num1.porExtenso("702"));
 		} catch (Exception e) {
@@ -177,4 +177,51 @@ public class Teste {
 			fail("laçou exceçao, mas nao devia");
 		}
 	}
+
+	@Test
+	public void test1000() {
+		try {
+			assertEquals("mil", num1.porExtenso("1000"));
+		} catch (Exception e) {
+			fail("laçou exceçao, mas nao devia");
+		}
+
+		try {
+			assertEquals("mil cento e cinquenta", num1.porExtenso("1150"));
+		} catch (Exception e) {
+			fail("laçou exceçao, mas nao devia");
+		}
+
+		try {
+			assertEquals("nove mil quinhentos e cinquenta e dois", num1.porExtenso("9552"));
+		} catch (Exception e) {
+			fail("laçou exceçao, mas nao devia");
+		}
+
+		try {
+			assertEquals("dois mil setecentos e cinquenta", num1.porExtenso("2750"));
+		} catch (Exception e) {
+			fail("laçou exceçao, mas nao devia");
+		}
+		
+		try {
+			assertEquals("nove mil novecentos e noventa e nove", num1.porExtenso("9999"));
+		} catch (Exception e) {
+			fail("laçou exceçao, mas nao devia");
+		}
+		
+		try {
+			assertEquals("nove mil e dois", num1.porExtenso("9002"));
+		} catch (Exception e) {
+			fail("laçou exceçao, mas nao devia");
+		}
+		
+		try {
+			assertEquals("mil", num1.porExtenso("1000"));
+		} catch (Exception e) {
+			fail("laçou exceçao, mas nao devia");
+		}
+
+	}
+
 }

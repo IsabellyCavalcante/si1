@@ -25,43 +25,78 @@ public class Numero {
 
 	private String decompoeNumero(String num) throws Exception {
 		String resp = "";
-		
-		if(num.equals("100")){
+
+		if (num.equals("100")) {
 			resp = "cem";
-			
+
 		} else if (numeros.get(num) != null) {
 			resp = numeros.get(num);
-			
+
 		} else {
 			if (num.length() == 2) {
 				if ((num.charAt(0) + "").equals("0")) {
 					resp = numeros.get(num.charAt(1) + "");
 				} else {
 					resp = numeros.get(num.charAt(0) + "0") + " e "
-							+ numeros.get(num.charAt(1) + "");
+							+ numeros.get(limpaZeroAEsquerda(num.charAt(1) + ""));
 				}
-				
+
 			} else if (num.length() == 3) {
 				if (num.charAt(0) + "" != "1") {
-
 					resp = numeros.get(num.charAt(0) + "00") + " e "
-							+ porExtenso(num.substring(1));
+							+ porExtenso(limpaZeroAEsquerda(num.substring(1)));
 				} else {
-					resp = "cento e " + porExtenso(num.substring(1));
+					resp = "cento e " + porExtenso(limpaZeroAEsquerda(num.substring(1)));
+				}
+
+			} else if (num.length() == 4) {
+
+				if (!(num.charAt(0) + "").equals("1")) {
+					System.out.println(num.substring(1));
+					System.out.println(limpaZeroAEsquerda(num.substring(1)));
+					if (numeros.get(num.substring(1)) != null && numeros.get((num.substring(1))).length()2 ) {
+						System.out.println(limpaZeroAEsquerda(".-."));
+						resp = numeros.get(num.charAt(0) + "000") + " e "
+								+ porExtenso(limpaZeroAEsquerda(num.substring(1)));
+					} else {
+						resp = numeros.get(num.charAt(0) + "") + " mil "
+								+ porExtenso(limpaZeroAEsquerda(num.substring(1)));
+					}
+				} else {
+					if (numeros.get(num.substring(1)) != null && numeros.get(num.substring(1)).length() <= 2 ) {
+						return "mil e " + porExtenso(limpaZeroAEsquerda(num.substring(1)));
+					} else {
+						return "mil " + porExtenso(limpaZeroAEsquerda(num.substring(1)));
+					}
 				}
 			}
+
 		}
 		return resp;
 	}
+	
+	private String limpaZeroAEsquerda(String numero){
+
+        if (numero.length() > 0) {
+
+                if ((numero.charAt(0)+"").equals("0")) {
+
+                        return limpaZeroAEsquerda(numero.substring(1));
+                }
+        }
+
+        return numero;
+
+}
 
 	private void adicionaNoMapa() {
 		String[] num = { "zero", "um", "dois", "tres", "quatro", "cinco",
 				"seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze",
 				"quatorze", "quinze", "dezesseis", "dezessete", "dezoito",
 				"dezenove", "vinte", "trinta", "quarenta", "cinquenta",
-				"sessenta", "setenta", "oitenta", "noventa", "cento", "duzentos",
-				"trezentos", "quatrocentos", "quinhentos", "seiscentos",
-				"setecentos", "oitocentos", "novecentos", "mil" };
+				"sessenta", "setenta", "oitenta", "noventa", "cento",
+				"duzentos", "trezentos", "quatrocentos", "quinhentos",
+				"seiscentos", "setecentos", "oitocentos", "novecentos", "mil" };
 
 		for (int i = 0; i < 21; i++) {
 			numeros.put(String.valueOf(i) + "", num[i]);
