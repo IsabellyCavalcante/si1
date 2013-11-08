@@ -18,13 +18,13 @@ public class Teste {
 		String[] numExtenso = { "zero", "um", "dois", "tres", "quatro",
 				"cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze",
 				"treze", "quatorze", "quinze", "dezesseis", "dezessete",
-				"dezoito", "dezenove" };
+				"dezoito", "dezenove", "vinte" };
 
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 21; i++) {
 			try {
 				assertEquals(numExtenso[i], num1.porExtenso(String.valueOf(i)));
 			} catch (Exception e) {
-				e.printStackTrace();
+				fail("laçou exceçao, mas nao devia");
 			}
 		}
 
@@ -34,27 +34,30 @@ public class Teste {
 	public void testExcecao() {
 		assertEquals("", "");
 		try {
-			assertEquals("Informe um numero", num1.porExtenso("shdh"));
+			num1.porExtenso("shdh");
+			fail("nao laçou exceçao");
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		try {
-			assertEquals("Informe um numero", num1.porExtenso("s2"));
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-
-		}
-		try {
-			assertEquals("Informe um numero", num1.porExtenso("12o"));
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-
+			 assertEquals("Número inválido", e.getMessage());
 		}
 		
 		try {
-			assertNotEquals("Informe um numero", num1.porExtenso("12"));
+			num1.porExtenso("s2");
+			fail("nao laçou exceçao");
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			assertEquals("Número inválido", e.getMessage());
+		}
+		
+		try {
+			num1.porExtenso("12o");
+			fail("nao laçou exceçao");
+		} catch (Exception e) {
+			assertEquals("Número inválido", e.getMessage());
+		}
+		
+		try {
+			assertEquals("doze", num1.porExtenso("12"));
+		} catch (Exception e) {
+			fail("laçou exceçao, mas nao devia");
 
 		}
 	}
