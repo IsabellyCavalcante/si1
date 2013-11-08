@@ -2,8 +2,6 @@ package lab01;
 
 import java.util.Hashtable;
 
-import org.junit.Test;
-
 public class Numero {
 
 	private Hashtable<String, String> numeros = new Hashtable<String, String>();
@@ -13,11 +11,11 @@ public class Numero {
 	private String[] numExtenso = { "zero", "um", "dois", "tres", "quatro",
 			"cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze",
 			"treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito",
-			"dezenove", "vinte" };
+			"dezenove", "vinte"}; 
+	//private String[] dezenas = {"trinta", "quarenta", "cinquenta", "sessenta",
+	//"setenta", "oitenta", "noventa" };
 
 	public String porExtenso(String num) throws Exception {
-		String numPorExtenso = "";
-
 		// exceçoes
 		if (num.equals("")) {
 			throw new Exception("");
@@ -29,30 +27,36 @@ public class Numero {
 			}
 		}
 
-		// adiciona ate vinte no hash
+		String dezena = num.substring(0, 1);
+		String unidade = num.substring(1);
+
+		// adiciona no hash
 		for (int i = 0; i < 21; i++) {
 			numeros.put(String.valueOf(i), numExtenso[i]);
 		}
+		// adiciona as dezenas
+		numeros.put("30", "trinta");
+		numeros.put("40", "quarenta");
+		numeros.put("50", "cinquenta");
+		numeros.put("60", "sessenta");
+		numeros.put("70", "setenta");
+		numeros.put("80", "oitenta");
+		numeros.put("90", "noventa");
 
-		String[] numQuebrado = num.split("");
-		
-		if (numQuebrado[1].equals("2") && numQuebrado.length == 3 && !(numQuebrado[2].equals("0"))) {
-			numPorExtenso = dezenas();
+		if (numeros.containsKey(num)) {
+			return numeros.get(num);
 		} else {
-			numPorExtenso = numeros.get(num);
+			return dezena(dezena, unidade);
 		}
-
-		return numPorExtenso;
 
 	}
 
-	private String dezenas() {
-		return "vinte e um";
-
+	private String dezena(String dezena, String unidade) {
+		return numeros.get(dezena + "0") + " e " + numeros.get(unidade);
+		
 	}
 
 	public static void main(String[] args) {
-
 	}
 
 }
