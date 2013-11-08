@@ -21,7 +21,11 @@ public class Teste {
 				"dezoito", "dezenove" };
 
 		for (int i = 0; i < 20; i++) {
-			assertEquals(numExtenso[i], num1.porExtenso(String.valueOf(i)));
+			try {
+				assertEquals(numExtenso[i], num1.porExtenso(String.valueOf(i)));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 	}
@@ -29,9 +33,29 @@ public class Teste {
 	@Test
 	public void testExcecao() {
 		assertEquals("", "");
-		assertEquals("Informe um numero", num1.porExtenso("shdh"));
-		assertEquals("Informe um numero", num1.porExtenso("s2"));
-		assertEquals("Informe um numero", num1.porExtenso("12o"));
-		assertNotEquals("Informe um numero", num1.porExtenso("12o"));
+		try {
+			assertEquals("Informe um numero", num1.porExtenso("shdh"));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			assertEquals("Informe um numero", num1.porExtenso("s2"));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+
+		}
+		try {
+			assertEquals("Informe um numero", num1.porExtenso("12o"));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+
+		}
+		
+		try {
+			assertNotEquals("Informe um numero", num1.porExtenso("12"));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+
+		}
 	}
 }
