@@ -37,21 +37,21 @@ public class Teste {
 			num1.porExtenso("shdh");
 			fail("nao laçou exceçao");
 		} catch (Exception e) {
-			assertEquals("Número inválido", e.getMessage());
+			assertEquals("Numero invalido", e.getMessage());
 		}
 
 		try {
 			num1.porExtenso("s2");
 			fail("nao laçou exceçao");
 		} catch (Exception e) {
-			assertEquals("Número inválido", e.getMessage());
+			assertEquals("Numero invalido", e.getMessage());
 		}
 
 		try {
 			num1.porExtenso("12o");
 			fail("nao laçou exceçao");
 		} catch (Exception e) {
-			assertEquals("Número inválido", e.getMessage());
+			assertEquals("Numero invalido", e.getMessage());
 		}
 
 		try {
