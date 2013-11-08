@@ -10,7 +10,7 @@ public class Teste {
 
 	@Before
 	public void inicializa() {
-		num1 = new Numero(); 
+		num1 = new Numero();
 	}
 
 	@Test
@@ -37,28 +37,39 @@ public class Teste {
 			num1.porExtenso("shdh");
 			fail("nao laçou exceçao");
 		} catch (Exception e) {
-			 assertEquals("Número inválido", e.getMessage());
+			assertEquals("Número inválido", e.getMessage());
 		}
-		
+
 		try {
 			num1.porExtenso("s2");
 			fail("nao laçou exceçao");
 		} catch (Exception e) {
 			assertEquals("Número inválido", e.getMessage());
 		}
-		
+
 		try {
 			num1.porExtenso("12o");
 			fail("nao laçou exceçao");
 		} catch (Exception e) {
 			assertEquals("Número inválido", e.getMessage());
 		}
-		
+
 		try {
 			assertEquals("doze", num1.porExtenso("12"));
 		} catch (Exception e) {
 			fail("laçou exceçao, mas nao devia");
 
 		}
+		
 	}
+	
+	@Test
+	public void test21() {
+		try {
+			assertEquals("vinte e um", num1.porExtenso("21"));
+		} catch (Exception e) {
+			fail("laçou exceçao, mas nao devia");
+		}
+	}
+
 }
