@@ -54,11 +54,19 @@ public class Numero {
 				if (!(num.charAt(0) + "").equals("1")) {
 					System.out.println(num.substring(1));
 					System.out.println(limpaZeroAEsquerda(num.substring(1)));
-					if (numeros.get(num.substring(1)) != null && numeros.get((num.substring(1))).length()2 ) {
+					//erro aqui .-.
+					
+					
+					if (numeros.get(limpaZeroAEsquerda(num.substring(1))) != null) {
 						System.out.println(limpaZeroAEsquerda(".-."));
+						System.out.println(num.charAt(0));
+						System.out.println(num.charAt(0)+ "000");
+						System.out.println(numeros.get(num.charAt(0)+ "000"));
+						
 						resp = numeros.get(num.charAt(0) + "000") + " e "
 								+ porExtenso(limpaZeroAEsquerda(num.substring(1)));
 					} else {
+						System.out.println("pq");
 						resp = numeros.get(num.charAt(0) + "") + " mil "
 								+ porExtenso(limpaZeroAEsquerda(num.substring(1)));
 					}
