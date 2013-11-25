@@ -1,4 +1,4 @@
-name := "s"
+name := "todoList"
 
 version := "1.0-SNAPSHOT"
 
@@ -7,5 +7,9 @@ libraryDependencies ++= Seq(
   javaEbean,
   cache
 )     
+
+val appDependencies = Seq(
+  javaEbean
+)
 
 play.Project.playJavaSettings
