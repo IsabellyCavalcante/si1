@@ -6,23 +6,53 @@
     
     <h1> Lista de Tarefas</h1>
     
-    <h2>@tasks.size() tarefa(s)</h2>
+    <h2> - Tarefa(s) a fazer:</h2>
     
     <ul>
         @for(task <- tasks) {
+        	@if(!task.isDone()){
             <li>
-                Descricao: @task.getLabel()			|
-                Projeto: @task.getProject()			|
-                Prioridade: @task.getPriority()		|
-                
+                <b>Descricao:</b> @task.getLabel()
+                <br>			
+                <b>Projeto:</b> @task.getProject()			
+                <br>
+                <b>Prioridade:</b> @task.getPriority()		
+                <br>
                 @form(routes.Application.deleteTask(task.getId())) {
-                    <input type="submit" value="Delete">
+                    <input type="submit" value="Excluir">
                 }
-                 
+                
+                @form(routes.Application.update(task.getId())) {          
+                    <input type="submit" value="Feita">
+                }
+                <br>
+                
             </li>
-        }
+        }}
     </ul>
     
+    <h2> - Tarefa(s) feita(s):</h2>
+    <ul>	
+    	@for(task <- tasks) {
+    		@if(task.isDone()){
+            <li>
+                <b>Descricao:</b> @task.getLabel()
+                <br>			
+                <b>Projeto:</b> @task.getProject()			
+                <br>
+                <b>Prioridade:</b> @task.getPriority()		
+                <br>
+                @form(routes.Application.deleteTask(task.getId())) {
+                    <input type="submit" value="Excluir">
+                }
+
+                <br>
+                
+            </li>
+       }
+       }
+     </ul>
+
     <h2>Adicione uma nova tarefa</h2>
     
     @form(routes.Application.newTask()) {
