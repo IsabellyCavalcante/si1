@@ -8,7 +8,7 @@ import play.data.validation.Constraints.*;
 import javax.persistence.*;
 
 @Entity
-public class Task extends Model {
+public class Task extends Model implements Comparable {
 
 	private static final long serialVersionUID = 5782545151195949235L;
 
@@ -27,7 +27,10 @@ public class Task extends Model {
 	public static Finder<Long, Task> find = new Finder(Long.class, Task.class);
 
 	public static List<Task> all() {
-		return find.all();
+		List<Task> list = find.all();
+		Collections.sort(list);
+        
+        return list;
 	}
 
 	public static void create(Task task) {
@@ -42,8 +45,12 @@ public class Task extends Model {
 		Task tarefa = find.ref(id);
 
 		tarefa.setDone(true);
-		delete(id);
 		create(tarefa);
+	}
+	
+	@Override
+	public int compareTo(Object arg0) {
+		 return priority - ((Task) arg0).getPriority();
 	}
 
 	public Long getId() {
