@@ -16,7 +16,7 @@
         @for(task <- tasks) {
         	@if(!task.isDone()){
             <li>
-                <b>Descricao:</b> @task.getLabel()
+                <b>Descrição:</b> @task.getLabel()
                 <br>			
                 <b>Projeto:</b> @task.getProject()			
                 <br>
@@ -42,7 +42,7 @@
     	@for(task <- tasks) {
     		@if(task.isDone()){
             <li>
-                <b>Descricao:</b> @task.getLabel()
+                <b>Descrição:</b> @task.getLabel()
                 <br>			
                 <b>Projeto:</b> @task.getProject()			
                 <br>

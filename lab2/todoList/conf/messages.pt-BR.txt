@@ -1,3 +1,2 @@
-constraint.required=Obrigatorio
-error.required=Este campo e obrigatorio
-error.invalid=Valor invalido
+constraint.required=Obrigatório
+error.required=Este campo é obrigatório
