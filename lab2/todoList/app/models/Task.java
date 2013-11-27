@@ -7,6 +7,7 @@ import play.data.validation.Constraints.*;
 
 import javax.persistence.*;
 
+@SuppressWarnings("rawtypes")
 @Entity
 public class Task extends Model implements Comparable {
 
@@ -23,9 +24,10 @@ public class Task extends Model implements Comparable {
 
 	private boolean done = false;
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({"unchecked"})
 	public static Finder<Long, Task> find = new Finder(Long.class, Task.class);
 
+	@SuppressWarnings("unchecked")
 	public static List<Task> all() {
 		List<Task> list = find.all();
 		Collections.sort(list);
@@ -43,10 +45,10 @@ public class Task extends Model implements Comparable {
 
 	public static void update(Long id) {
 		Task tarefa = find.ref(id);
-
 		tarefa.setDone(true);
 		create(tarefa);
 	}
+
 	
 	@Override
 	public int compareTo(Object arg0) {

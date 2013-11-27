@@ -2,12 +2,15 @@
 
 @import helper._
 
-@main("Todo list") {
+@main {
+    
+    <div class="titulo">
     
     <h1> Lista de Tarefas</h1>
-
+    <hr>
+    </div>
     
-    <h2> - Tarefa(s) a fazer:</h2>
+    <h2>- Tarefa(s) a fazer:</h2>
     
     <ul>
         @for(task <- tasks) {
@@ -31,8 +34,10 @@
             </li>
         }}
     </ul>
-    
-    <h2> - Tarefa(s) feita(s):</h2>
+
+    <br><br>
+
+    <h2>- Tarefa(s) feita(s):</h2>
     <ul>	
     	@for(task <- tasks) {
     		@if(task.isDone()){
@@ -52,9 +57,10 @@
             </li>
        }
        }
-     </ul>
-
-    <h2>Adicione uma nova tarefa</h2>
+     
+    </ul>
+	
+    <h2>- Adicione uma nova tarefa</h2>
     
     @form(routes.Application.newTask()) {
         
@@ -66,5 +72,6 @@
         
         <input type="submit" value="Adicionar">
     }
+    
     
 }
